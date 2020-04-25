@@ -7,13 +7,41 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="musicBean"
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
+    <bean id="musicBeanRock"
+          class="ru.springcourse.RockMusic">
+    </bean>
+    <bean id="musicBeanRap"
+          class="ru.springcourse.RapMusic">
+    </bean>
+    <bean id="musicBeanClassical"
           class="ru.springcourse.ClassicalMusic">
     </bean>
 
     <bean id="musicPlayer"
           class="ru.springcourse.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
-    </bean>
+        <!-- использование setter-a бина с помощью ссылки на другой бин
+        здесь name="music" - это setter setMusic();
+          <property name="music" ref="musicBean"/> -->
 
-</beans>
+        <!-- использование setter-a бина с помощью конкретного значения
+          <property name="name" value="Some name"/>
+          <property name="volume" value="50"/>
+          -->
+
+        <!-- использование конфигруационного файла musicPlayer.properties для
+        присвоения значений -->
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+
+        <property name="musicList">
+            <list>
+                <ref bean="musicBeanRock"/>
+                <ref bean="musicBeanRap"/>
+                <ref bean="musicBeanClassical"/>
+            </list>
+        </property>
+      </bean>
+
+  </beans>
