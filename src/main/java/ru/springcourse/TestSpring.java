@@ -8,6 +8,15 @@ public class TestSpring {
                 "applicationContext.xml"
         );
 
+        ClassicalMusic classicalMusic = context.getBean("musicBean", ClassicalMusic.class);
+
+        System.out.println(classicalMusic.getSong());
+
+
+
+
+
+
         // получаем bean
 //        Music music = context.getBean("musicBean", Music.class);
 //
@@ -15,21 +24,21 @@ public class TestSpring {
 
         // передает в качестве бина id musicPlayer
         // Dependency Injection (не внедряем зависимость вручную, а делаем это через Spring)
-        MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        // musicPlayer.playMusicList();
-
-        boolean comparison = firstMusicPlayer == secondMusicPlayer;
-
-        System.out.println(comparison);
-
-        System.out.println(firstMusicPlayer);
-        System.out.println(secondMusicPlayer);
-
-        firstMusicPlayer.setVolume(10);
-
-        System.out.println(firstMusicPlayer.getVolume());
-        System.out.println(secondMusicPlayer.getVolume());
+//        MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//        MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//        // musicPlayer.playMusicList();
+//
+//        boolean comparison = firstMusicPlayer == secondMusicPlayer;
+//
+//        System.out.println(comparison);
+//
+//        System.out.println(firstMusicPlayer);
+//        System.out.println(secondMusicPlayer);
+//
+//        firstMusicPlayer.setVolume(10);
+//
+//        System.out.println(firstMusicPlayer.getVolume());
+//        System.out.println(secondMusicPlayer.getVolume());
 
 
         context.close();
