@@ -20,11 +20,10 @@ public class TestSpring {
 //
 //        classicalMusicPlayer.playMusic();
 
-//        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-//        musicPlayer.playMusic();
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
-        Computer computer = context.getBean("computer", Computer.class);
-        System.out.println(computer);
+        musicPlayer.playMusic(MusicStyle.ROCK);
+
 
         context.close();
     }

@@ -1,8 +1,11 @@
 package ru.springcourse;
 
+import java.util.List;
+
 public class RapMusic implements Music{
+
     @Override
-    public String getSong() {
-        return "Rap song";
+    public List<String> getSongs() {
+        return null;
     }
 }
