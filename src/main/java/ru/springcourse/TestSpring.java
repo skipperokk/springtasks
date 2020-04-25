@@ -15,8 +15,22 @@ public class TestSpring {
 
         // передает в качестве бина id musicPlayer
         // Dependency Injection (не внедряем зависимость вручную, а делаем это через Spring)
-        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        musicPlayer.playMusicList();
+        MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        // musicPlayer.playMusicList();
+
+        boolean comparison = firstMusicPlayer == secondMusicPlayer;
+
+        System.out.println(comparison);
+
+        System.out.println(firstMusicPlayer);
+        System.out.println(secondMusicPlayer);
+
+        firstMusicPlayer.setVolume(10);
+
+        System.out.println(firstMusicPlayer.getVolume());
+        System.out.println(secondMusicPlayer.getVolume());
+
 
         context.close();
     }
